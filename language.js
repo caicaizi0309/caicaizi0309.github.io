@@ -49,7 +49,12 @@
   const entries = translations.flatMap(([selector, spanish]) =>
     [...document.querySelectorAll(selector)].map(element => ({
       element, english: element.innerHTML, spanish
+    }))).concat([...document.querySelectorAll("[data-es]")].map(element => ({
+      element, english: element.innerHTML, spanish: element.dataset.es
     })));
+  const galleryImages = [...document.querySelectorAll("[data-alt-es]")].map(element => ({
+    element, english: element.alt, spanish: element.dataset.altEs
+  }));
   // Keep original paper titles accessible as tooltips for accurate citation.
   document.querySelectorAll(".paper h3").forEach(title => title.title = title.textContent);
   const selector = document.getElementById("language");
@@ -65,6 +70,9 @@
     });
     entries.forEach(({element, english, spanish}) => {
       element.innerHTML = language === "es" ? spanish : english;
+    });
+    galleryImages.forEach(({element, english, spanish}) => {
+      element.alt = language === "es" ? spanish : english;
     });
     document.querySelector("header nav").setAttribute("aria-label", language === "es" ? "Navegación principal" : "Main navigation");
     const portrait = document.querySelector(".portrait img");

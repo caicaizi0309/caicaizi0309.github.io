@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Beyond research · Xiaoyuan Zhang</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="gallery.css">
 </head>
 <body id="top">
 <header>
@@ -19,33 +20,42 @@
     <h1>Beyond research</h1>
     <p>A place for everyday moments, activities, and things I enjoy outside research.</p>
   </section>
-  <!-- Replace each placeholder with a photo, then add its date and caption. No activities below are real entries yet. -->
-  <section class="gallery-feed" aria-label="Life gallery">
-    <figure class="gallery-item">
-      <div class="gallery-placeholder"><b aria-hidden="true">01</b><span>Photo to come</span></div>
-      <figcaption>
-        <p class="gallery-date">[Date · Location]</p>
-        <h2>[An everyday moment]</h2>
-        <p class="gallery-copy">[A photo and a few words about a moment you would like to remember.]</p>
-      </figcaption>
-    </figure>
-    <figure class="gallery-item">
-      <div class="gallery-placeholder"><b aria-hidden="true">02</b><span>Photo to come</span></div>
-      <figcaption>
-        <p class="gallery-date">[Date · Location]</p>
-        <h2>[An activity or gathering]</h2>
-        <p class="gallery-copy">[Add a photo from an activity, a trip, or time spent with friends.]</p>
-      </figcaption>
-    </figure>
-    <figure class="gallery-item">
-      <div class="gallery-placeholder"><b aria-hidden="true">03</b><span>Photo to come</span></div>
-      <figcaption>
-        <p class="gallery-date">[Date · Location]</p>
-        <h2>[A small update]</h2>
-        <p class="gallery-copy">[Share something new, a hobby, or a little discovery from daily life.]</p>
-      </figcaption>
-    </figure>
-  </section>
+  <p class="gallery-guide" data-es="Cuatro álbumes, sin orden cronológico. Abre cada grupo para ver más; pulsa una foto para abrir el archivo original.">Four albums, no timeline. Open a group to see more; select a photo to view the original file.</p>
+  <div class="gallery-feed" aria-label="Life gallery">
+<section class="photo-album" id="hometown">
+<h2 data-es="Xi’an, mi ciudad natal">Xi’an, my hometown</h2>
+<p class="album-caption" data-es="Xi’an, Shaanxi: mi ciudad natal. Una pequeña mirada al lugar de donde vengo.">Xi’an, Shaanxi — my hometown. A little glimpse of where I’m from.</p>
+<a class="album-photo" href="57e0b3614af621fd3646a6806b04ce3d.jpg" target="_blank" rel="noopener"><img width="4096" height="1844" src="57e0b3614af621fd3646a6806b04ce3d.jpg" alt="An illuminated traditional building in Xi’an at dusk" data-alt-es="Un edificio tradicional iluminado en Xi’an al atardecer" fetchpriority="high" decoding="async"></a>
+<details class="album-more"><summary data-es="Conoce mi ciudad natal">Get to know my hometown</summary>
+<p data-es="Más imágenes de Xi’an, próximamente.">More glimpses of Xi’an to come.</p>
+<div class="future-pair">
+<div class="future-slot landscape" data-es="Próxima foto horizontal">Next landscape photo</div>
+<div class="future-slot portrait-slot" data-es="Próxima foto vertical">Next portrait photo</div>
+</div>
+<!-- Future photos: replace the two slots with album-photo links and img elements; images retain their natural proportions. -->
+</details>
+</section><section class="photo-album" id="outdoors">
+<h2 data-es="Montañas, agua y cielo abierto">Mountains, water & open skies</h2>
+<p class="album-caption" data-es="Momentos al aire libre, reunidos por tema y no por fecha.">Moments outdoors, gathered by theme rather than date.</p>
+<a class="album-photo" href="03d9f1179a0e487277950d89924b23d2.jpg" target="_blank" rel="noopener"><img width="4000" height="3000" src="03d9f1179a0e487277950d89924b23d2.jpg" alt="Two people in front of a waterfall" data-alt-es="Dos personas frente a una cascada" loading="lazy" decoding="async"></a>
+<details class="album-more"><summary data-es="Ver otros 6 momentos al aire libre">See 6 more outdoor moments</summary><div class="album-grid"><a class="album-photo" href="3ad49ea9cb744a13acd0f2ea6048e468.jpg" target="_blank" rel="noopener"><img width="4096" height="3072" src="3ad49ea9cb744a13acd0f2ea6048e468.jpg" alt="Looking out over the water" data-alt-es="Mirando el agua" loading="lazy" decoding="async"></a>
+<a class="album-photo" href="3dbf523664a1ff2fb847c29c877e3fe0.jpg" target="_blank" rel="noopener"><img width="4096" height="3072" src="3dbf523664a1ff2fb847c29c877e3fe0.jpg" alt="A coastal landscape from above" data-alt-es="Un paisaje costero desde lo alto" loading="lazy" decoding="async"></a>
+<a class="album-photo" href="4dfb2cc3950de043727ec2bf021b0e1b.jpg" target="_blank" rel="noopener"><img width="4096" height="3072" src="4dfb2cc3950de043727ec2bf021b0e1b.jpg" alt="A portrait with mountains in the distance" data-alt-es="Un retrato con montañas al fondo" loading="lazy" decoding="async"></a>
+<a class="album-photo" href="ba84a5f49a5105540fc9463af15af310.jpg" target="_blank" rel="noopener"><img width="3024" height="4032" src="ba84a5f49a5105540fc9463af15af310.jpg" alt="A woodland path in the mist" data-alt-es="Un sendero entre árboles y niebla" loading="lazy" decoding="async"></a>
+<a class="album-photo" href="309bf1c6107a8bcd192c1cb7543d9c85.jpg" target="_blank" rel="noopener"><img width="4096" height="3072" src="309bf1c6107a8bcd192c1cb7543d9c85.jpg" alt="A playful moment in the sand" data-alt-es="Un momento de juego en la arena" loading="lazy" decoding="async"></a>
+<a class="album-photo" href="c6ebf03dc04481bf609bfdb041f2aad4.jpg" target="_blank" rel="noopener"><img width="3648" height="2736" src="c6ebf03dc04481bf609bfdb041f2aad4.jpg" alt="A moment beside the waves" data-alt-es="Un momento junto a las olas" loading="lazy" decoding="async"></a></div></details>
+</section><section class="photo-album" id="everyday">
+<h2 data-es="Lo cotidiano">The everyday</h2>
+<p class="album-caption" data-es="Espacios verdes, tardes tranquilas y un poco de humor.">Green spaces, quiet evenings, and a little silliness.</p>
+<a class="album-photo" href="00edc87c1d00e564cba6b67be74860f6.jpg" target="_blank" rel="noopener"><img width="1080" height="810" src="00edc87c1d00e564cba6b67be74860f6.jpg" alt="A person on a green lawn surrounded by trees" data-alt-es="Una persona en un césped rodeado de árboles" loading="lazy" decoding="async"></a>
+<details class="album-more"><summary data-es="Ver otros 2 momentos cotidianos">See 2 more everyday moments</summary><div class="album-grid"><a class="album-photo" href="5fe69135e785af72dc7b74f36f9d7201.jpg" target="_blank" rel="noopener"><img width="4096" height="3072" src="5fe69135e785af72dc7b74f36f9d7201.jpg" alt="A running track after rain at dusk" data-alt-es="Una pista de atletismo después de la lluvia al atardecer" loading="lazy" decoding="async"></a><a class="album-photo" href="a0c61fafe33a3255b89803159ffece3b.jpg" target="_blank" rel="noopener"><img src="a0c61fafe33a3255b89803159ffece3b.jpg" alt="A playful knitted helmet and beard" data-alt-es="Un divertido casco tejido con barba" loading="lazy" decoding="async"></a></div></details>
+</section><section class="photo-album" id="training">
+<h2 data-es="En movimiento">Time to move</h2>
+<p class="album-caption" data-es="Un momento en el gimnasio.">A moment at the gym.</p>
+<a class="album-photo" href="1aa131bbde12764f64e52bf1134a0814.jpg" target="_blank" rel="noopener"><img width="5712" height="4284" src="1aa131bbde12764f64e52bf1134a0814.jpg" alt="A group photo in a boxing gym" data-alt-es="Una foto de grupo en un gimnasio de boxeo" loading="lazy" decoding="async"></a>
+
+</section>
+  </div>
 </main>
 <div class="wrap"><footer class="gallery-footer">
   <a class="back-home" data-local-page href="index.html#contact">← Academic profile</a>
