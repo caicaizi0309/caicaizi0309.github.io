@@ -6,7 +6,7 @@
 <link rel="icon" type="image/svg+xml" href="images/favicon.svg?v=2">
 <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="project.css">
 </head>
-<body id="top">
+<body id="top" class="case-page">
 <header>
 <nav aria-label="Main navigation"><a data-local-page href="index.html#projects" data-es="← Proyectos">← Projects</a></nav>
 <select id="language" aria-label="Language / Idioma"><option value="en" lang="en">English</option><option value="es" lang="es">Español</option></select>
@@ -24,7 +24,7 @@
 </div>
 </section>
 <section class="case-section">
-<h2 data-es="01 / Convertir una deformación en una señal">01 / Turn deformation into a signal</h2>
+<h2><span class="case-number">01</span><span class="case-title" data-es="Convertir una deformación en una señal">Turn deformation into a signal</span></h2>
 <div class="case-grid">
 <div><p data-es="Al presionar la estructura de celosía, los imanes incorporados cambian de posición u orientación. Los magnetómetros detectan el cambio del campo. El modelo aprende a convertir 15 canales en una estimación de x, y y profundidad de penetración.">Pressing the lattice displaces or reorients its embedded magnets. Magnetometers detect the resulting field changes. A model learns to map 15 channels to an estimate of x, y, and indentation depth.</p>
 <p class="case-note" data-es="Alcance: un único punto de contacto. Este proyecto reproduce y amplía un flujo de trabajo basado en eFlesh; no presenta eFlesh como una invención propia.">Scope: single-point contact. This project reproduces and develops a workflow based on eFlesh; eFlesh itself is prior work.</p></div>
@@ -37,8 +37,8 @@
 <li><b data-es="Visualizar">Visualize</b><span data-es="Mostrar posición y profundidad">Display position and depth</span></li>
 </ol>
 </section>
-<section class="case-section">
-<h2 data-es="02 / Adquirir datos con etiquetas conocidas">02 / Collect data with known labels</h2>
+<section class="case-section case-section--tint">
+<h2><span class="case-number">02</span><span class="case-title" data-es="Adquirir datos con etiquetas conocidas">Collect data with known labels</span></h2>
 <div class="case-grid">
 <figure class="case-figure"><img loading="lazy" src="images/eflesh/acquisition.jpg" width="788" height="564" alt="Three-axis machine pressing the tactile sensor" data-alt-es="Máquina de tres ejes presionando el sensor táctil"><figcaption data-es="Adquisición automatizada con una máquina de tres ejes; presentación, p. 11.">Automated acquisition on a three-axis machine; presentation, p. 11.</figcaption></figure>
 <div><p data-es="Recorrimos una zona nominal de 30 × 30 mm con un paso de 1,5 mm: 20 × 20 posiciones y cinco profundidades (2, 3, 4, 5 y 6 mm). Las 2.000 pulsaciones tardaron unas 3,5 horas.">We sampled a nominal 30 × 30 mm area at a 1.5 mm step: 20 × 20 positions and five depths (2, 3, 4, 5, and 6 mm). The 2,000 indentations took approximately 3.5 hours.</p>
@@ -47,7 +47,7 @@
 </div>
 </section>
 <section class="case-section">
-<h2 data-es="03 / Alinear señales y pulsaciones">03 / Align signals with individual presses</h2>
+<h2><span class="case-number">03</span><span class="case-title" data-es="Alinear señales y pulsaciones">Align signals with individual presses</span></h2>
 <p data-es="Detectar pulsaciones únicamente mediante diferencias de señal fallaba cuando la respuesta era débil. Aprovechamos el inicio y los periodos de los ciclos de la máquina para segmentar los registros y asociarlos a las coordenadas programadas.">Detecting presses from signal differences alone was unreliable when the response was weak. We used the machine’s start time and cycle periods to segment the recordings and associate them with programmed coordinates.</p>
 <ol class="case-flow">
 <li><b data-es="Registro bruto">Raw recording</b><span data-es="Señales continuas de 15 canales">Continuous 15-channel signals</span></li>
@@ -57,8 +57,8 @@
 </ol>
 <figure class="case-figure"><img loading="lazy" src="images/eflesh/segmentation.png" width="1485" height="264" alt="Recorded signal with markers identifying indentation cycles" data-alt-es="Señal registrada con marcadores de los ciclos de pulsación"><figcaption data-es="Marcadores de segmentación en la señal de referencia; presentación, p. 17.">Segmentation markers on the reference signal; presentation, p. 17.</figcaption></figure>
 </section>
-<section class="case-section">
-<h2 data-es="04 / Aprender y comprobar la interpolación">04 / Learn and check interpolation</h2>
+<section class="case-section case-section--result">
+<h2><span class="case-number">04</span><span class="case-title" data-es="Aprender y comprobar la interpolación">Learn and check interpolation</span></h2>
 <div class="case-grid">
 <div><p data-es="Estandarizamos los canales y entrenamos un perceptrón multicapa para estimar tres coordenadas. Una partición espacial en damero utiliza posiciones alternas para entrenamiento y validación.">We standardized the channels and trained a multilayer perceptron to regress three coordinates. A spatial checkerboard split assigns alternating positions to training and validation.</p>
 <p class="case-note" data-es="Esta evaluación comprueba la interpolación entre posiciones. No demuestra por sí sola estabilidad entre días, transferencia a otro sensor ni reconocimiento de varios contactos.">This evaluation probes interpolation between positions. It does not by itself establish day-to-day stability, transfer to another sensor, or multi-contact recognition.</p></div>
@@ -68,14 +68,14 @@
 <p class="case-note" data-es="Ambas métricas cuantifican error de predicción. No interpretamos el RMSE como una medida independiente de estabilidad temporal.">Both metrics quantify prediction error. We do not interpret RMSE as an independent measure of temporal stability.</p>
 </section>
 <section class="case-section">
-<h2 data-es="05 / Hacer visible el contacto">05 / Make touch visible</h2>
+<h2><span class="case-number">05</span><span class="case-title" data-es="Hacer visible el contacto">Make touch visible</span></h2>
 <div class="case-grid">
 <figure class="case-figure"><img loading="lazy" src="images/eflesh/demo.png" width="1100" height="905" alt="Screenshot of the contact-position and depth visualization" data-alt-es="Captura de la visualización de posición y profundidad de contacto"><figcaption data-es="Captura del demostrador, extraída de la p. 28.">Demo screenshot extracted from p. 28.</figcaption></figure>
 <div><p data-es="La interfaz representa la posición estimada con un punto y la profundidad con una elevación de la malla. Es una visualización del contacto predicho, no una medición completa de la forma de la superficie.">The interface shows the predicted position as a point and depth as a raised mesh. This is a visualization of the predicted contact, not a full measurement of the surface shape.</p><p class="case-note" data-es="La presentación muestra una interfaz que se actualiza en vivo, pero no proporciona una medición de latencia.">The presentation demonstrates a live-updating interface but does not provide a measured latency.</p></div>
 </div>
 </section>
-<section class="case-section">
-<h2 data-es="06 / Lo que probaríamos después">06 / What we would test next</h2>
+<section class="case-section case-section--reflection">
+<h2><span class="case-number">06</span><span class="case-title" data-es="Lo que probaríamos después">What we would test next</span></h2>
 <div class="case-grid">
 <div><p data-es="Orden de adquisición: probar trayectorias distintas para investigar la diferencia de error entre X e Y. Es una hipótesis, no una causa demostrada."><strong>Acquisition order:</strong> test different scan paths to investigate the X/Y error difference. This is a hypothesis, not an established cause.</p>
 <p data-es="Durabilidad: se observó daño tras 2.000 pulsaciones. El siguiente paso es ensayar una capa superior protectora y geometrías de celosía alternativas."><strong>Durability:</strong> damage was observed after 2,000 presses. A protective top layer and revised lattice geometry are next design candidates.</p>
