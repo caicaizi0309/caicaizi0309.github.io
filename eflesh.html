@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title data-es="Localización táctil con eFlesh · Xiaoyuan Zhang">Touch localization with eFlesh · Xiaoyuan Zhang</title>
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg?v=2">
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="project.css">
+</head>
+<body id="top">
+<header>
+<nav aria-label="Main navigation"><a data-local-page href="index.html#projects" data-es="← Proyectos">← Projects</a></nav>
+<select id="language" aria-label="Language / Idioma"><option value="en" lang="en">English</option><option value="es" lang="es">Español</option></select>
+</header>
+<main class="wrap">
+<section class="case-head">
+<div class="case-kicker" data-es="SENSORES TÁCTILES · REPRODUCCIÓN Y PROTOTIPADO">TACTILE SENSING · REPRODUCTION & PROTOTYPING</div>
+<h1 data-es="Localizar el contacto a partir de campos magnéticos">Locating touch through magnetic fields</h1>
+<p data-es="¿Podemos estimar dónde y cuánto se presiona una estructura blanda a partir de sus señales magnéticas? Construimos un sistema de adquisición y aprendizaje basado en eFlesh para explorar esta pregunta.">Can magnetic signals tell us where a soft structure is pressed, and how deeply? We built an acquisition and learning pipeline based on eFlesh to explore this question.</p>
+<p class="case-meta" data-es="Proyecto de equipo · Yanxing Huo y Xiaoyuan Zhang">Team project · Yanxing Huo & Xiaoyuan Zhang</p>
+<div class="case-stats">
+<div><strong>15 → 3</strong><span data-es="canales de señal → coordenadas">signal channels → coordinates</span></div>
+<div><strong>2,000</strong><span data-es="pulsaciones registradas">recorded indentations</span></div>
+<div><strong>20 × 20</strong><span data-es="posiciones de la cuadrícula × 5 profundidades">grid positions × 5 depths</span></div>
+</div>
+</section>
+<section class="case-section">
+<h2 data-es="01 / Convertir una deformación en una señal">01 / Turn deformation into a signal</h2>
+<div class="case-grid">
+<div><p data-es="Al presionar la estructura de celosía, los imanes incorporados cambian de posición u orientación. Los magnetómetros detectan el cambio del campo. El modelo aprende a convertir 15 canales en una estimación de x, y y profundidad de penetración.">Pressing the lattice displaces or reorients its embedded magnets. Magnetometers detect the resulting field changes. A model learns to map 15 channels to an estimate of x, y, and indentation depth.</p>
+<p class="case-note" data-es="Alcance: un único punto de contacto. Este proyecto reproduce y amplía un flujo de trabajo basado en eFlesh; no presenta eFlesh como una invención propia.">Scope: single-point contact. This project reproduces and develops a workflow based on eFlesh; eFlesh itself is prior work.</p></div>
+<figure class="case-figure"><img src="images/eflesh/sensor.jpg" width="1024" height="768" alt="Magnetic lattice sensor mounted on its fixture" data-alt-es="Sensor de celosía magnética montado en su soporte"><figcaption data-es="Nuestro montaje del sensor. Imagen extraída de la presentación del proyecto, p. 28.">Our sensor assembly. Extracted from the project presentation, p. 28.</figcaption></figure>
+</div>
+<ol class="case-flow">
+<li><b data-es="Presionar">Press</b><span data-es="Contacto deforma la celosía">Contact deforms the lattice</span></li>
+<li><b data-es="Medir">Measure</b><span data-es="Registrar 15 canales magnéticos">Record 15 magnetic channels</span></li>
+<li><b data-es="Estimar">Estimate</b><span data-es="La red MLP predice x, y, z">An MLP predicts x, y, z</span></li>
+<li><b data-es="Visualizar">Visualize</b><span data-es="Mostrar posición y profundidad">Display position and depth</span></li>
+</ol>
+</section>
+<section class="case-section">
+<h2 data-es="02 / Adquirir datos con etiquetas conocidas">02 / Collect data with known labels</h2>
+<div class="case-grid">
+<figure class="case-figure"><img loading="lazy" src="images/eflesh/acquisition.jpg" width="788" height="564" alt="Three-axis machine pressing the tactile sensor" data-alt-es="Máquina de tres ejes presionando el sensor táctil"><figcaption data-es="Adquisición automatizada con una máquina de tres ejes; presentación, p. 11.">Automated acquisition on a three-axis machine; presentation, p. 11.</figcaption></figure>
+<div><p data-es="Recorrimos una zona nominal de 30 × 30 mm con un paso de 1,5 mm: 20 × 20 posiciones y cinco profundidades (2, 3, 4, 5 y 6 mm). Las 2.000 pulsaciones tardaron unas 3,5 horas.">We sampled a nominal 30 × 30 mm area at a 1.5 mm step: 20 × 20 positions and five depths (2, 3, 4, 5, and 6 mm). The 2,000 indentations took approximately 3.5 hours.</p>
+<p data-es="La secuencia programada proporciona las etiquetas de posición y profundidad. Los registros magnéticos continuos deben alinearse con esa secuencia antes de entrenar.">The programmed sequence provides the position and depth labels. Continuous magnetic recordings must be aligned with that sequence before training.</p>
+<p class="case-note" data-es="Estos son los parámetros de nuestra adquisición, no los del experimento del artículo original.">These are our acquisition settings, not the original paper’s experimental settings.</p></div>
+</div>
+</section>
+<section class="case-section">
+<h2 data-es="03 / Alinear señales y pulsaciones">03 / Align signals with individual presses</h2>
+<p data-es="Detectar pulsaciones únicamente mediante diferencias de señal fallaba cuando la respuesta era débil. Aprovechamos el inicio y los periodos de los ciclos de la máquina para segmentar los registros y asociarlos a las coordenadas programadas.">Detecting presses from signal differences alone was unreliable when the response was weak. We used the machine’s start time and cycle periods to segment the recordings and associate them with programmed coordinates.</p>
+<ol class="case-flow">
+<li><b data-es="Registro bruto">Raw recording</b><span data-es="Señales continuas de 15 canales">Continuous 15-channel signals</span></li>
+<li><b data-es="Remuestreo">Resampling</b><span data-es="Regularizar el eje temporal">Regularize the time axis</span></li>
+<li><b data-es="Suavizado">Smoothing</b><span data-es="Reducir las fluctuaciones">Reduce fluctuations</span></li>
+<li><b data-es="Segmentación">Segmentation</b><span data-es="Emparejar cada pulsación con x, y, z">Pair each press with x, y, z</span></li>
+</ol>
+<figure class="case-figure"><img loading="lazy" src="images/eflesh/segmentation.png" width="1485" height="264" alt="Recorded signal with markers identifying indentation cycles" data-alt-es="Señal registrada con marcadores de los ciclos de pulsación"><figcaption data-es="Marcadores de segmentación en la señal de referencia; presentación, p. 17.">Segmentation markers on the reference signal; presentation, p. 17.</figcaption></figure>
+</section>
+<section class="case-section">
+<h2 data-es="04 / Aprender y comprobar la interpolación">04 / Learn and check interpolation</h2>
+<div class="case-grid">
+<div><p data-es="Estandarizamos los canales y entrenamos un perceptrón multicapa para estimar tres coordenadas. Una partición espacial en damero utiliza posiciones alternas para entrenamiento y validación.">We standardized the channels and trained a multilayer perceptron to regress three coordinates. A spatial checkerboard split assigns alternating positions to training and validation.</p>
+<p class="case-note" data-es="Esta evaluación comprueba la interpolación entre posiciones. No demuestra por sí sola estabilidad entre días, transferencia a otro sensor ni reconocimiento de varios contactos.">This evaluation probes interpolation between positions. It does not by itself establish day-to-day stability, transfer to another sensor, or multi-contact recognition.</p></div>
+<figure class="case-figure small-figure"><img loading="lazy" src="images/eflesh/checkerboard.png" width="474" height="335" alt="Checkerboard pattern illustrating alternating train and validation positions" data-alt-es="Damero que ilustra posiciones alternas de entrenamiento y validación"><figcaption data-es="Blanco: entrenamiento. Negro: validación. Esquema de la presentación, p. 18; no representa el tamaño exacto de la cuadrícula.">White: training. Black: validation. Schematic from p. 18, not the exact grid dimensions.</figcaption></figure>
+</div>
+<table class="case-table"><caption data-es="Errores por eje informados en la presentación, p. 27 (mm)">Axis-wise errors reported in the presentation, p. 27 (mm)</caption><thead><tr><th data-es="Eje">Axis</th><th>MAE</th><th>RMSE</th></tr></thead><tbody><tr><th>X</th><td>0.5742</td><td>0.8045</td></tr><tr><th>Y</th><td>0.5432</td><td>0.7353</td></tr><tr><th>Z</th><td>0.1833</td><td>0.2462</td></tr></tbody></table>
+<p class="case-note" data-es="Ambas métricas cuantifican error de predicción. No interpretamos el RMSE como una medida independiente de estabilidad temporal.">Both metrics quantify prediction error. We do not interpret RMSE as an independent measure of temporal stability.</p>
+</section>
+<section class="case-section">
+<h2 data-es="05 / Hacer visible el contacto">05 / Make touch visible</h2>
+<div class="case-grid">
+<figure class="case-figure"><img loading="lazy" src="images/eflesh/demo.png" width="1100" height="905" alt="Screenshot of the contact-position and depth visualization" data-alt-es="Captura de la visualización de posición y profundidad de contacto"><figcaption data-es="Captura del demostrador, extraída de la p. 28.">Demo screenshot extracted from p. 28.</figcaption></figure>
+<div><p data-es="La interfaz representa la posición estimada con un punto y la profundidad con una elevación de la malla. Es una visualización del contacto predicho, no una medición completa de la forma de la superficie.">The interface shows the predicted position as a point and depth as a raised mesh. This is a visualization of the predicted contact, not a full measurement of the surface shape.</p><p class="case-note" data-es="La presentación muestra una interfaz que se actualiza en vivo, pero no proporciona una medición de latencia.">The presentation demonstrates a live-updating interface but does not provide a measured latency.</p></div>
+</div>
+</section>
+<section class="case-section">
+<h2 data-es="06 / Lo que probaríamos después">06 / What we would test next</h2>
+<div class="case-grid">
+<div><p data-es="Orden de adquisición: probar trayectorias distintas para investigar la diferencia de error entre X e Y. Es una hipótesis, no una causa demostrada."><strong>Acquisition order:</strong> test different scan paths to investigate the X/Y error difference. This is a hypothesis, not an established cause.</p>
+<p data-es="Durabilidad: se observó daño tras 2.000 pulsaciones. El siguiente paso es ensayar una capa superior protectora y geometrías de celosía alternativas."><strong>Durability:</strong> damage was observed after 2,000 presses. A protective top layer and revised lattice geometry are next design candidates.</p>
+<p data-es="Varios contactos: la respuesta magnética combina deformaciones. Las aplicaciones plantares requerirían nuevos datos y validación; no están demostradas por este modelo de un solo contacto."><strong>Multiple contacts:</strong> magnetic responses mix deformations. Foot-contact applications would require new data and validation; they are not demonstrated by this single-contact model.</p></div>
+<figure class="case-figure"><img loading="lazy" src="images/eflesh/damage.jpg" width="1639" height="1229" alt="Visible holes in the lattice after repeated indentation" data-alt-es="Agujeros visibles en la celosía tras pulsaciones repetidas"><figcaption data-es="Daño superficial documentado en la presentación, p. 32.">Surface damage documented in the presentation, p. 32.</figcaption></figure>
+</div>
+</section>
+<aside class="case-source">
+<span data-es="Basado en el trabajo original:">Based on the original work:</span>
+<a href="https://arxiv.org/abs/2506.09994">eFlesh: Highly customizable Magnetic Touch Sensing using Cut-Cell Microstructures</a>
+<span data-es=" · Pattabiraman et al., 2025. Las imágenes y los resultados de esta página proceden de nuestra presentación del proyecto."> · Pattabiraman et al., 2025. Images and project results on this page are from our project presentation.</span>
+</aside>
+</main>
+<div class="wrap"><footer><a data-local-page href="index.html#projects" data-es="← Volver a los proyectos">← Back to projects</a></footer></div>
+<script src="language.js"></script>
+</body></html>
