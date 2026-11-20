@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Xiaoyuan Zhang</title>
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg?v=2">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20261120-3">
 </head>
 <body id="top">
 <header>
@@ -61,9 +61,12 @@
   <h2 lang="en">Projects</h2>
   <div class="projects-grid"><!-- 每个项目使用一个 article -->
     <article class="entry project-card" id="project-eflesh">
-      <!-- Reserved for the user's acquisition video; replace this block with a video element when ready. -->
-      <div class="project-preview" data-es="Vídeo de adquisición · próximamente">Data acquisition video · coming soon</div>
-      <h3><a class="project-link" data-local-page href="eflesh.html?v=20261120-2"><span data-es="Localización táctil con eFlesh">Touch localization with eFlesh</span></a></h3>
+      <!-- Put the original MP4 at videos/data-acquisition.mp4. The poster remains visible until playback. -->
+      <video class="project-video" controls preload="none" poster="images/eflesh/acquisition.jpg">
+        <source src="videos/data-acquisition.mp4" type="video/mp4">
+        Your browser does not support HTML video.
+      </video>
+      <h3><a class="project-link" href="eflesh.html?v=20261120-3"><span data-es="Localización táctil con eFlesh">Touch localization with eFlesh</span></a></h3>
       <p data-es="De 15 canales magnéticos a la posición y profundidad de un contacto.">From 15 magnetic channels to contact position and depth.</p>
       <details><summary>Project notes</summary>
         <p data-es="Un proyecto de reproducción basado en eFlesh: adquisición automatizada, segmentación de señales, regresión con una red neuronal y visualización del contacto. Recogimos 2.000 pulsaciones y evaluamos la interpolación espacial mediante una partición en damero.">A reproduction project based on eFlesh: automated acquisition, signal segmentation, neural-network regression, and contact visualization. We collected 2,000 indentations and evaluated spatial interpolation with a checkerboard split.</p>
@@ -108,7 +111,7 @@
     <dt>GitHub</dt>
     <dd><a href="https://github.com/caicaizi0309">@caicaizi0309 ↗</a></dd>
     <dt class="life-label">Personal</dt>
-    <dd><a class="life-link" data-local-page href="life.html">Beyond research →</a></dd>
+    <dd><a class="life-link" href="life.html">Beyond research →</a></dd>
   </dl>
 
 </section>
