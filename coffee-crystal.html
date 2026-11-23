@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Coffee Crystal · Xiaoyuan Zhang</title>
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg?v=2">
+<link rel="stylesheet" href="style.css?v=20261123-1"><link rel="stylesheet" href="project.css?v=20261123-1">
+</head>
+<body id="top" class="case-page">
+<header><nav aria-label="Main navigation"><a href="index.html#projects">Projects</a></nav></header>
+<main class="wrap">
+<section class="case-head">
+<div class="case-kicker">PRODUCT SYSTEM · MECHATRONICS · INTERACTION</div>
+<h1>Coffee Crystal</h1>
+<p>A semi-automated countertop machine that turns a café’s spent coffee grounds into soap, making the recycling process visible to customers while reducing staff workload.</p>
+<p class="case-meta">Team project · Yanxing Huo, Runze Liu, Zimu Zhang & Xiaoyuan Zhang</p>
+<div class="case-stats">
+<div><strong>20+</strong><span>new-user interaction tests</span></div>
+<div><strong>~15 min</strong><span>target production cycle</span></div>
+<div><strong>4</strong><span>integrated domains: structure, motion, control, interaction</span></div>
+</div>
+</section>
+<section class="case-section">
+<h2><span class="case-number">01</span><span class="case-title">Start from the café</span></h2>
+<div class="case-grid">
+<div><p>Field visits, social-media research, and interviews pointed to three practical needs: the machine should be convenient, visually attractive to customers, and compatible with a small café counter. The product concept turns grounds into a sellable or giftable item instead of adding another manual disposal task.</p><p class="case-note">This was a team design project. The website presents the integrated system rather than assigning every subsystem to one person.</p></div>
+<figure class="case-figure"><img src="images/coffee-crystal/machine-hero.png" width="719" height="800" alt="Coffee Crystal concept in a café"><figcaption>The intended setting: a compact machine integrated into the café environment.</figcaption></figure>
+</div>
+</section>
+<section class="case-section case-section--tint">
+<h2><span class="case-number">02</span><span class="case-title">Organize the machine</span></h2>
+<p>The internal layout evolved repeatedly as the frame, heating arm, material bins, mold, wiring, and customer interaction competed for space. The final architecture used aluminum profiles for the structural frame and acrylic panels for protection and visibility.</p>
+<div class="case-image-pair">
+<figure class="case-figure"><img loading="lazy" src="images/coffee-crystal/layout-iterations.png" width="800" height="195" alt="Iterations of the Coffee Crystal internal layout"><figcaption>Layout iterations over roughly one month of development.</figcaption></figure>
+<figure class="case-figure"><img loading="lazy" src="images/coffee-crystal/exterior-design.png" width="640" height="358" alt="Sketches and exterior design development"><figcaption>From early sketches to the final industrial and retro visual language.</figcaption></figure>
+</div>
+</section>
+<section class="case-section">
+<h2><span class="case-number">03</span><span class="case-title">Coordinate material, heat and motion</span></h2>
+<ol class="case-flow">
+<li><b>Meter</b><span>A servo-driven screw feeder controls the coffee-ground volume.</span></li>
+<li><b>Heat & mix</b><span>A heated pot and stirrer melt the soap base and mix in grounds.</span></li>
+<li><b>Move</b><span>A three-axis mechanism transfers and pours the mixture.</span></li>
+<li><b>Cool & deliver</b><span>A removable mold and fan support handoff to the customer.</span></li>
+</ol>
+<div class="case-grid">
+<figure class="case-figure"><img loading="lazy" src="images/coffee-crystal/screw-feeder.png" width="800" height="648" alt="Screw feeder for spent coffee grounds"><figcaption>The screw feeder converts motor rotation into controlled material delivery.</figcaption></figure>
+<div><p>The embedded controller used FreeRTOS to separate initialization, input reading, and the production sequence. Motor pulses were moved to interrupt-based timing so motion and heating could run together. Below 50°C the heater prioritizes warm-up; from 50–65°C it switches to PID control to reduce overshoot.</p><p class="case-note">The heating arm was shortened from 150 mm to 120 mm to improve stability under periodic stirring loads.</p></div>
+</div>
+</section>
+<section class="case-section case-section--result">
+<h2><span class="case-number">04</span><span class="case-title">Guide a first-time user</span></h2>
+<div class="case-grid">
+<figure class="case-figure"><img loading="lazy" src="images/coffee-crystal/delivery.jpg" width="800" height="533" alt="Coffee Crystal machine and delivered soap molds"><figcaption>The final machine and mold delivery area.</figcaption></figure>
+<div><p>The tilted touchscreen keeps instructions near the material inlets and gives each action a visible response. Testing with more than 20 new users led to clearer directional prompts, more explicit wording, and stronger visual distinction between the mold slot and feeding ports.</p><p class="case-note">The project reports usability changes from the sessions, but not a controlled comparison or task-completion metric.</p></div>
+</div>
+<figure class="case-figure"><img loading="lazy" src="images/coffee-crystal/interaction-improvements.png" width="593" height="334" alt="Revised instruction screen for adding soap base"><figcaption>One revised instruction screen following interaction testing.</figcaption></figure>
+</section>
+<section class="case-section case-section--reflection">
+<h2><span class="case-number">05</span><span class="case-title">What remains</span></h2>
+<div class="case-grid">
+<ul class="case-list">
+<li>Reduce cooling time and improve heat removal.</li>
+<li>Refine the heating and stirring sequence.</li>
+<li>Sense remaining coffee grounds and soap base.</li>
+<li>Support different mold sizes and ground ratios.</li>
+</ul>
+<figure class="case-figure"><img loading="lazy" src="images/coffee-crystal/user-test.png" width="800" height="449" alt="User testing of the Coffee Crystal machine"><figcaption>Hands-on testing and observation around the working prototype.</figcaption></figure>
+</div>
+</section>
+</main>
+<div class="wrap"><footer><a href="index.html#projects">Back to projects</a></footer></div>
+</body></html>
