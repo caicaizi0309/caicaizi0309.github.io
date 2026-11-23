@@ -4,9 +4,9 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Topology-optimized auxetic structure · Xiaoyuan Zhang</title>
 <link rel="icon" type="image/svg+xml" href="images/favicon.svg?v=2">
-<link rel="stylesheet" href="style.css?v=20261123-1"><link rel="stylesheet" href="project.css?v=20261123-1">
+<link rel="stylesheet" href="style.css?v=20261123-1"><link rel="stylesheet" href="project.css?v=20261123-2">
 </head>
-<body id="top" class="case-page">
+<body id="top" class="case-page case-auxetic">
 <header><nav aria-label="Main navigation"><a href="index.html#projects">Projects</a></nav></header>
 <main class="wrap">
 <section class="case-head">
@@ -19,10 +19,11 @@
 <div><strong>219 MPa</strong><span>measured modulus reported</span></div>
 <div><strong>-0.667</strong><span>measured Poisson’s ratio reported</span></div>
 </div>
+<figure class="case-hero-media"><img src="images/auxetic/final-structure.jpg" width="1280" height="1222" alt="Printed topology-optimized auxetic structure"><figcaption>The printed candidate used for physical validation.</figcaption></figure>
 </section>
 <section class="case-section">
 <h2><span class="case-number">01</span><span class="case-title">Define the trade-off</span></h2>
-<p>Auxetic structures expand laterally when stretched and contract laterally when compressed. Their geometry can provide energy absorption and controllable compliance, but low stiffness can limit practical use. The design task was therefore not simply “make it auxetic,” but improve equivalent stiffness without losing the negative Poisson’s ratio.</p>
+<p>Auxetic structures expand laterally when stretched and contract laterally when compressed. Their geometry can provide energy absorption and controllable compliance, but low stiffness can limit practical use. The design task was therefore not simply “make it auxetic,” but <strong>improve equivalent stiffness without losing the negative Poisson’s ratio</strong>.</p>
 <div class="case-image-pair">
 <figure class="case-figure"><img src="images/auxetic/topology-1.png" width="350" height="263" alt="First topology optimization result"><figcaption>One candidate topology from the parameter study.</figcaption></figure>
 <figure class="case-figure"><img src="images/auxetic/topology-2.png" width="350" height="263" alt="Second topology optimization result"><figcaption>A different parameter combination produces a visibly different load path.</figcaption></figure>
@@ -47,9 +48,9 @@
 </section>
 <section class="case-section case-section--result">
 <h2><span class="case-number">04</span><span class="case-title">Read the result carefully</span></h2>
-<div class="case-grid">
+<div class="case-grid case-grid--result">
 <figure class="case-figure"><img loading="lazy" src="images/auxetic/compression-curve.jpg" width="1370" height="957" alt="Load displacement curve from compression test"><figcaption>Load-displacement data used for the reported modulus.</figcaption></figure>
-<figure class="case-figure"><img loading="lazy" src="images/auxetic/specimen.png" width="435" height="442" alt="Auxetic specimen with measured dimensions"><figcaption>Measurement points on the printed specimen.</figcaption></figure>
+<figure class="case-figure case-figure--crop"><img loading="lazy" src="images/auxetic/specimen.png" width="435" height="442" alt="Auxetic specimen with measured dimensions"><figcaption>Measurement points on the printed specimen.</figcaption></figure>
 </div>
 <p>The presentation reports a modulus of 219 MPa and a Poisson’s ratio of -0.667. These values support the intended auxetic response in this test, but the manual choice of the linear range, measurement-point placement, and material condition all affect the numbers.</p>
 </section>
@@ -61,7 +62,6 @@
 <li>Track points on deforming cell edges, not only relatively rigid vertices.</li>
 <li>Control printing, storage, and conditioning before comparing experiment with simulation.</li>
 </ul>
-<figure class="case-figure small-figure"><img loading="lazy" src="images/auxetic/final-structure.jpg" width="1280" height="1222" alt="Final printed auxetic structure"><figcaption>The printed candidate used for the study.</figcaption></figure>
 </section>
 </main>
 <div class="wrap"><footer><a href="index.html#projects">Back to projects</a></footer></div>

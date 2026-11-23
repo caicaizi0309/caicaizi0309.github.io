@@ -4,9 +4,9 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Street-crossing robot · Xiaoyuan Zhang</title>
 <link rel="icon" type="image/svg+xml" href="images/favicon.svg?v=2">
-<link rel="stylesheet" href="style.css?v=20261123-1"><link rel="stylesheet" href="project.css?v=20261123-1">
+<link rel="stylesheet" href="style.css?v=20261123-1"><link rel="stylesheet" href="project.css?v=20261123-2">
 </head>
-<body id="top" class="case-page">
+<body id="top" class="case-page case-street">
 <header><nav aria-label="Main navigation"><a href="index.html#projects">Projects</a></nav></header>
 <main class="wrap">
 <section class="case-head">
@@ -19,12 +19,13 @@
 <div><strong>2</strong><span>handle load cases simulated</span></div>
 <div><strong>5</strong><span>integrated feedback and perception modes</span></div>
 </div>
+<figure class="case-hero-media case-hero-media--robot"><img src="images/street-robot/robot-render.jpg" width="2560" height="1440" alt="Rendered street-crossing robot"><figcaption>A compact three-wheel platform designed around a continuous guiding handle.</figcaption></figure>
 </section>
 <section class="case-section">
 <h2><span class="case-number">01</span><span class="case-title">Provide a continuous guide</span></h2>
 <div class="case-grid">
-<div><p>The concept addresses a specific gap at crosswalks: information alone does not provide continuous spatial guidance. The robot approaches the service position, helps the user locate and grasp the handle, monitors the traffic signal, guides the crossing, and then returns.</p><p class="case-note">The intended users are independent visually impaired pedestrians, including people who use a white cane. The product is a prototype, not a certified mobility aid.</p></div>
-<figure class="case-figure"><img src="images/street-robot/working-scenario.jpg" width="1792" height="1305" alt="Street-crossing robot waiting beside a crosswalk"><figcaption>Prototype positioned in the intended crosswalk scenario.</figcaption></figure>
+<div><p>The concept addresses a specific gap at crosswalks: <strong>information alone does not provide continuous spatial guidance</strong>. The robot approaches the service position, helps the user locate and grasp the handle, monitors the traffic signal, guides the crossing, and then returns.</p><p class="case-note">The intended users are independent visually impaired pedestrians, including people who use a white cane. The product is a prototype, not a certified mobility aid.</p></div>
+<figure class="case-figure case-figure--crop"><img src="images/street-robot/working-scenario.jpg" width="1792" height="1305" alt="Street-crossing robot waiting beside a crosswalk"><figcaption>Prototype positioned in the intended crosswalk scenario.</figcaption></figure>
 </div>
 </section>
 <section class="case-section case-section--tint">
@@ -35,7 +36,7 @@
 <li><b>Control</b><span>Outer force control and inner velocity control move the base.</span></li>
 <li><b>Communicate</b><span>Voice, vibration, handle force, and lights expose system state.</span></li>
 </ol>
-<div class="case-image-pair">
+<div class="case-image-pair case-image-pair--equal">
 <figure class="case-figure"><img loading="lazy" src="images/street-robot/hardware.png" width="592" height="296" alt="Jetson Orin Nano and STM32 control hardware"><figcaption>High-level perception and low-level motor control hardware.</figcaption></figure>
 <figure class="case-figure"><img loading="lazy" src="images/street-robot/interaction.png" width="764" height="544" alt="User following the robot by its handle"><figcaption>The handle forms the continuous physical connection during guidance.</figcaption></figure>
 </div>
