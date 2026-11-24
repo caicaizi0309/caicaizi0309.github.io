@@ -40,12 +40,14 @@
 #projects .projects-grid{align-items:start}
 #projects .projects-grid>.entry{margin-top:0}
 .paper+.paper{margin-top:32px;border-top:1px solid #d1d6cc;padding-top:30px}
-.paper-status{display:inline-block;padding:2px 9px;border-radius:4px;background:#f1eade;color:#715130;font-size:12px;letter-spacing:.035em}
+.paper-status{display:inline-block;padding:2px 9px;border-radius:4px;background:#f1eade;color:#715130;font-size:12px;letter-spacing:.035em;white-space:nowrap}
 .paper-status.accepted{background:#e1ece4;color:#285d50}
 .paper h3{margin:0 0 12px;font-size:clamp(22px,2.4vw,26px);line-height:1.28}
-.paper-status{margin-bottom:10px}
+.paper-status{margin:0}
 .paper p{margin:0;font-size:15px;line-height:1.6;color:#49554e}
-.paper .venue{margin-top:12px}
+.paper .venue{margin-top:12px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.journal-link{color:#285d50;text-decoration-thickness:1px;text-decoration-color:#9fb0a7}
+.journal-link:hover{text-decoration-color:currentColor}
 .paper .journal-metrics{margin-top:5px;font-size:13px;color:#59665d}
 header,footer,nav{justify-content:flex-end}
 header nav{flex-wrap:wrap;gap:8px clamp(14px,3vw,30px)}
